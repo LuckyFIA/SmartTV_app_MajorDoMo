@@ -1,0 +1,211 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+*/
+body { 
+	-webkit-touch-callout: none !important;
+	-webkit-user-select: none !important;
+}
+
+
+
+.remote {
+	height: 600px;
+	position: static;
+	top: 0px;
+	left: 0px;
+}
+.remote_center_arrows {
+	z-index: 100;
+	position: absolute;
+}
+.remote_center {
+	position: absolute;
+	left: 54px;
+	top: 54px;
+	z-index: 200;
+}
+.arrow_right_pressed, .arrow_down_pressed, .arrow_left_pressed, .arrow_up_pressed{
+	z-index: 110;
+	position: absolute;
+	display: none;
+	top: 0px;
+	left: -2px;
+}
+.navigation {
+	position: absolute;
+	z-index: 1000;
+	left: 2px;
+	top: 0px;
+}
+.nav_area {
+	outline: none;
+	border: none;
+}
+.center {
+	position: absolute;
+	left: 7px;
+	top: 60px;
+}
+.center_arrows {
+	position: absolute;
+	left: 19px;
+	top: 18px;
+}
+.control_button_tl {
+	position: absolute;
+	z-index: 90;
+	top: 0px;
+	left: 0px;
+}
+.control_button_tr {
+	z-index: 90;
+	position: absolute;
+	top: 0px;
+	left: 115px;
+}
+.control_button_bl {
+	z-index: 90;
+	position: absolute;
+	top: 115px;
+	left: 0px;
+}
+.control_button_br {
+	z-index: 90;
+	position: absolute;
+	top: 115px;
+	left: 115px;
+	outline:none;
+border:none;
+}
+.vol_UP {
+	z-index: 100;
+	position: absolute;
+	top: 14px;
+	left: 14px;
+}
+.ch_UP {
+	z-index: 100;
+	position: absolute;
+	top: 14px;
+	left: 175px;
+}
+.vol_DOWN {
+	z-index: 100;
+	position: absolute;
+	top: 166px;
+	left: 14px;
+}
+.ch_DOWN {
+	z-index: 100;
+	position: absolute;
+	top: 170px;
+	left: 175px;
+}
+
+.btn_num {
+	position: absolute;
+	top: 290px;
+	left: 0px;
+}
+.btn {
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	position: absolute;
+	background-size: cover;
+	background-image: url(/templates/app_smarttv/images/button.png);
+}
+.pwr {
+	left: 0px;
+	top: auto;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	position: absolute;
+	background-size: cover;
+	background-image: url(/templates/app_smarttv/images/power_button.png);
+}
+.srv_ {
+	width: 60px;
+	height: 43px;
+	color: #B7B9BB;
+	text-align: center;
+	line-height: 35px;
+	font-size: small;
+	font-weight: bold;
+}
+.srv_1 {
+	top: auto;
+	left: 60px;
+}
+.srv_2 {
+	top: auto;
+	left: 120px;
+}
+.srv_3 {
+	top: auto;
+	left: 180px;
+}
+.btn_ {
+	width: 80px;
+	height: 57px;
+	color: #B7B9BB;
+	text-align: center;
+	line-height: 48px;
+	font-size: x-large;
+	font-weight: bold;
+}
+.btn_1 {
+	left: 0px;
+	top: auto;
+}
+.btn_2 {
+	top: auto;
+	left: 80px;
+}
+.btn_3 {
+	top: auto;
+	left: 160px;
+}
+.btn_4 {
+	top: 57px;
+	left: 0px;
+}
+.btn_5 {
+	top: 57px;
+	left: 80px;
+}
+.btn_6 {
+	top: 57px;
+	left: 160px;
+}
+.btn_7 {
+	top: 114px;
+	left: 0px;
+}
+.btn_8 {
+	top: 114px;
+	left: 80px;
+}
+.btn_9 {
+	top: 114px;
+	left: 160px;
+}
+.btn_LIST {
+	top: 171px;
+	left: 0px;
+	font-size: large;
+}
+.btn_0 {
+	top: 171px;
+	left: 80px;
+}
+.btn_BACK {
+	top: 171px;
+	left: 160px;
+	font-size: large;
+}

@@ -1,0 +1,40 @@
+</div>
+<h4 class="text-center">Сопряженные устройства</h4>
+<br>
+<div class="row">
+[#if PAIRING_DEVICE#]
+	<table  align=center class="table table-condensed">
+	<tr>
+	 <th class="col-xs-2 text-center">
+	   Псевдоним 
+	 </th>
+	 <th class="col-xs-3 text-center">
+	   Модель 
+	 </th>
+	 <th class="col-xs-3 text-center">
+	   IP адрес
+	 </th>
+	 <th class="col-xs-3 text-center">
+	    Команда
+	 </th>
+	 <th class="col-xs-1">
+	 </th>
+	</tr>
+	[#begin PAIRING_DEVICE#]
+		<tr>
+		 <td align=center>[#alias#]</td>
+		 <td align=center>[#name#]</td>
+		 <td align=center>[#ip#]</td>
+		 <td align=center><form>
+			<input style="border-radius: 6px;" class="col-xs-6" type="number" min="0" name="cmd" required="true">
+			 <input type="hidden" name="alias" value="[#alias#]">
+			<button class="col-xs-6 btn btn-link" type="submit" name="subm" value="sendCmd">Отправить</button>
+		</form></td>
+		<td align=center><a href="?subm=pairingDelete&alias=[#alias#]" onClick="return confirm('<#LANG_ARE_YOU_SURE#>')" title="Удалить"><span class="glyphicon glyphicon-trash"></span></a></td>
+		</tr>
+	[#end PAIRING_DEVICE#]
+	</table>
+[#else PAIRING_DEVICE#]
+<br><p><font color="red">Устройств не найдено</font></p>
+[#endif PAIRING_DEVICE#]
+</div>

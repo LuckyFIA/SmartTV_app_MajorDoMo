@@ -1,0 +1,45 @@
+<script type="text/javascript">
+	$(function() {
+		$(".search").click(function(){
+			$(this).button('loading')
+		});
+	});
+</script>
+
+<a href="?subm=" class="btn btn-default" title="Назад"> Назад </a>
+<a href="?subm=asearch" class="btn btn-primary search" data-loading-text="<span class='glyphicon glyphicon-transfer'></span> Поиск ..." title="Поиск">&nbsp;<span class="glyphicon glyphicon-search"></span> Искать&nbsp;&nbsp;</a>
+</div>
+
+
+<div  class="col-md-8">
+
+[#if FOUND_DEVICE#]
+	<h4 class="text-center">Найденые устройства</h4>
+	<br>
+	<table  align=center class="table table-condensed">
+	<tr>
+	 <th class="text-center">
+	   Тип 
+	 </th>
+	 <th class="text-center">
+	   Модель 
+	 </th>
+	 <th class="text-center">
+	   IP адрес
+	 </th>
+	 <th>
+	 </th>
+	</tr>
+	[#begin FOUND_DEVICE#]
+		<tr>
+		 <td align=center>[#model#]</td>
+		 <td align=center>[#name#]</td>
+		 <td align=center>[#ip#]</td>
+		 <td align=center><a href="?subm=pairing&ip=[#ip#]&name=[#name#]" title="Добавить"><span class="glyphicon glyphicon-save"></span></a></td>
+		</tr>
+	[#end FOUND_DEVICE#]
+	</table>
+[#else FOUND_DEVICE#]
+	<br><font color="red">&nbsp;&nbsp;<b>[#SEARCH#]</b></font>
+[#endif FOUND_DEVICE#]
+</div>

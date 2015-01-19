@@ -1,0 +1,307 @@
+<style type="text/css">
+a.spoiler:after{
+    content: " [-]";
+}
+a.spoiler.collapsed:after{
+    content: " [+]";
+}
+</style>
+<a href="?subm=" class="btn btn-default" title="Назад"> Назад </a>
+</div>
+<div class="col-md-8">
+<h4 class="text-center">Помощь</h4>
+
+<p style="text-decoration: underline;">Вызов модуля в меню (пульт):</p>
+<p><b>&#091#module name="app_samarttv" alias="Псевдоним"#&#093 </b>
+    <br>
+<p style="text-decoration: underline;">Использование в сценариях/методах:</p>
+<p><b>include_once(DIR_MODULES.'app_smarttv/app_smarttv.class.php');<br>
+    $smartTv=new app_smarttv();</b></p>
+<p><b>$smartTv->control($alias,'setVol', $val);</b> - Устанавливает громкость до уровня $val, для устройства с
+    псевдонимом $alias;</p>
+<p><b>$smartTv->control($alias,'setChan', $val);</b> - Переключает на канал = $val;</p>
+<p><b>$smartTv->control($alias,'sendCode', $val);</b> - Отправляет команду $val;</p>
+<p><b>$smartTv->control($alias,'getVol');</b> - Возвращает текущую громкость;</p>
+<p><b>$smartTv->control($alias,'curChan');</b> - Возвращает массив с информацией о текущем канале;</p>
+<p><b>$smartTv->control($alias,'listChan');</b> - Возвращает массив с информацией о настроенных каналах;</p>
+<p><b>$smartTv->control($alias,'getImg');</b> - Возвращает изображение с экрана в формате JPEG(960x540).</p>
+</div>
+<div class="col-md-8">
+<a href="#keyCode" data-toggle="collapse" class="btn btn-info spoiler collapsed">Коды команд</a>
+<div class="collapse" id="keyCode">
+    <div class="well">
+        <table class="table table-condensed">
+            <tbody>
+            <tr>
+                <th>Код команды</th>
+                <th>Описание команды</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>POWER</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Number 0</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Number 1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Number 2</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Number 3</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Number 4</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Number 5</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Number 6</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Number 7</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Number 8</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Number 9</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>UP key among remote Controller&rsquo;s 4 direction keys</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>DOWN key among remote Controller&rsquo;s 4 direction keys</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>LEFT key among remote Controller&rsquo;s 4 direction keys</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>RIGHT key among remote Controller&rsquo;s 4 direction keys</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>OK</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Home menu</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Menu key (same with Home menu key)</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Previous key (Back)</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Volume up</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Volume down</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Mute (toggle)</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Channel UP (+)</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Channel DOWN (-)</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Blue key of data broadcast</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Green key of data broadcast</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Red key of data broadcast</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Yellow key of data broadcast</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Play</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Pause</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Stop</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Fast forward (FF)</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Rewind (REW)</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Skip Forward</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Skip Backward</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>Record</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>Recording list</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>Repeat</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>Live TV</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>EPG</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>Current program information</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>Aspect ratio</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>External input</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>PIP secondary video</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>Show / Change subtitle</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>Program list</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>Tele Text</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>Mark</td>
+            </tr>
+            <tr>
+                <td>400</td>
+                <td>3D Video</td>
+            </tr>
+            <tr>
+                <td>401</td>
+                <td>3D L/R</td>
+            </tr>
+            <tr>
+                <td>402</td>
+                <td>Dash (-)</td>
+            </tr>
+            <tr>
+                <td>403</td>
+                <td>Previous channel (Flash back)</td>
+            </tr>
+            <tr>
+                <td>404</td>
+                <td>Favorite channel</td>
+            </tr>
+            <tr>
+                <td>405</td>
+                <td>Quick menu</td>
+            </tr>
+            <tr>
+                <td>406</td>
+                <td>Text Option</td>
+            </tr>
+            <tr>
+                <td>407</td>
+                <td>Audio Description</td>
+            </tr>
+            <tr>
+                <td>408</td>
+                <td>NetCast key (same with Home menu)</td>
+            </tr>
+            <tr>
+                <td>409</td>
+                <td>Energy saving</td>
+            </tr>
+            <tr>
+                <td>410</td>
+                <td>A/V mode</td>
+            </tr>
+            <tr>
+                <td>411</td>
+                <td>SIMPLINK</td>
+            </tr>
+            <tr>
+                <td>412</td>
+                <td>Exit</td>
+            </tr>
+            <tr>
+                <td>413</td>
+                <td>Reservation programs list</td>
+            </tr>
+            <tr>
+                <td>414</td>
+                <td>PIP channel UP</td>
+            </tr>
+            <tr>
+                <td>415</td>
+                <td>PIP channel DOWN</td>
+            </tr>
+            <tr>
+                <td>416</td>
+                <td>Switching between primary/secondary video</td>
+            </tr>
+            <tr>
+                <td>417</td>
+                <td>My Apps</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

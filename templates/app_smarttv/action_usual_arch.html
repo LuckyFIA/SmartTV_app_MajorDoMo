@@ -1,0 +1,87 @@
+<link href="../templates/app_smarttv/css/style.css" rel="stylesheet" type="text/css">
+
+<script>
+	$(document).ready(function(){
+		$(".nav_area")
+			.bind('mousedown touchstart', function(){
+				var cmd = $(this).attr("cmd");
+				//alert(cmd);
+				document.getElementById(cmd).style.display = 'block';
+			})
+			.mouseup(function(){
+				var cmd = $(this).attr("cmd");
+				document.getElementById(cmd).style.display = 'none';
+			});
+   
+  
+});
+</script>
+<script language="javascript">	
+	function command(cmd) {
+		if(cmd=='btn_OK'){
+			document.getElementById(cmd).style.display = 'none';
+			document.getElementById('btn_OK_press').style.display = 'block';
+			//remote_center.src="remote_center_pressed.png";
+		}
+		 else {//if(cmd=='btn_RIGHT' || cmd=='btn_DOWN' || cmd=='btn_LEFT' || cmd=='btn_UP' || cmd=='btn_CTL'){
+			var o=document.getElementById(cmd).style;
+			o.display=(o.display == '' || o.display == 'none')?'block': 'none';
+		} 
+	}
+	function mouseUP(cmd) {
+		if(cmd=='btn_OK'){
+			document.getElementById(cmd).style.display = 'block';
+			document.getElementById('btn_OK_press').style.display = 'none';
+			//remote_center.src="remote_center.png";
+		}
+		else {//if(cmd=='btn_RIGHT' || cmd=='btn_DOWN' || cmd=='btn_LEFT' || cmd=='btn_UP' || cmd=='btn_CTL'){
+			var o=document.getElementById(cmd).style;
+			o.display=(o.display == 'block')?'none': 'none';
+		}
+	}
+</script>
+<div class="remote">
+	<div class="center">
+		<div class="navigation"><img src="../templates/app_smarttv/images/nav.png" width="220" height="220" usemap="#navigationMap"/>
+			<map name="navigationMap">
+				<area shape="poly" coords="102,4,5,102,5,4" href="javascript:void(0)" cmd="btn_volUP" class="nav_area">
+				<area shape="poly" coords="119,5,216,5,216,103" href="javascript:void(0)" onmousedown="command('btn_CTR');" onmouseup="mouseUP('btn_CTR');">
+				<area shape="poly" coords="215,115,118,213,215,213" href="javascript:void(0)" onmousedown="command('btn_CBR');" onmouseup="mouseUP('btn_CBR');">
+				<area shape="poly" coords="5,117,5,215,102,215" href="javascript:void(0)" onmousedown="command('btn_CBL');" onmouseup="mouseUP('btn_CBL');">
+				
+				<area shape="poly" coords="148,141,153,132,153,91,143,80,158,65,203,110,160,153" href="javascript:void(0)" onmousedown="command('btn_RIGHT');" onmouseup="mouseUP('btn_RIGHT');">
+				<area shape="poly" coords="147,144,158,155,110,203,64,157,76,145,83,153,138,153" href="javascript:void(0)" onmousedown="command('btn_DOWN');" onmouseup="mouseUP('btn_DOWN');">
+				<area shape="poly" coords="76,143,67,134,67,91,79,77,64,62,16,109,63,156" href="javascript:void(0)" onmousedown="command('btn_LEFT');" onmouseup="mouseUP('btn_LEFT');">
+				<area shape="poly" coords="141,78,157,64,109,16,65,60,81,76,90,66,132,67" href="javascript:void(0)" cmd="btn_UP" class="nav_area">
+				<area shape="circle" coords="111,111,37" href="javascript:void(0)" cmd="btn_OK" class="nav_area">
+			</map>
+		</div>
+
+	  <div class="center_arrows">
+			<div id="btn_OK" class="remote_center"><img src="../templates/app_smarttv/images/remote_center.png" ></div>
+			<div id="btn_OK_press" class="remote_center" style="display: none;"><img src="../templates/app_smarttv/images/remote_center_pressed.png" ></div>
+			
+			<div id="btn_RIGHT" class="arrow_right_pressed"><img src="../templates/app_smarttv/images/arrow_right_pressed.png" ></div>
+			<div id="btn_DOWN" class="arrow_down_pressed"><img src="../templates/app_smarttv/images/arrow_down_pressed.png" ></div>
+			<div id="btn_LEFT" class="arrow_left_pressed"><img src="../templates/app_smarttv/images/arrow_left_pressed.png" ></div>
+		<div id="btn_UP" class="arrow_up_pressed"><img src="../templates/app_smarttv/images/arrow_up_pressed.png" ></div>
+			
+			<div  class="remote_center_arrows"><img src="../templates/app_smarttv/images/remote_center_arrows.png"></div>
+		</div>
+
+		<div class="vol_UP"><img src="../templates/app_smarttv/images/button_icon_volume_up.png" width="40" height="35" alt=""/></div>
+		<div class="vol_DOWN"><img src="../templates/app_smarttv/images/button_icon_volume_down.png" width="40" height="35" alt=""/></div>
+		<div class="ch_UP"><img src="../templates/app_smarttv/images/button_icon_channel_up.png" width="32" height="32" alt=""/></div>
+		<div class="ch_DOWN"><img src="../templates/app_smarttv/images/button_icon_channel_down.png" width="32" height="32" alt=""/></div>
+		
+		<div class="control_button_tl"><img src="../templates/app_smarttv/images/control_button_tl.png"></div>
+		<div class="control_button_tr"><img src="../templates/app_smarttv/images/control_button_tr.png"></div>
+		<div class="control_button_bl"><img src="../templates/app_smarttv/images/control_button_bl.png"></div>
+		<div class="control_button_br"><img src="../templates/app_smarttv/images/control_button_br.png"></div>
+		
+		<div id="btn_volUP" class="control_button_tl" style="display: none; top: -1px;"><img src="../templates/app_smarttv/images/control_button_tl_pressed.png"></div>
+		<div id="btn_CTR" class="control_button_tr" style="display: none; top: -1px;"><img src="../templates/app_smarttv/images/control_button_tr_pressed.png"></div>
+		<div id="btn_CBL" class="control_button_bl" style="display: none; top: 114px;"><img src="../templates/app_smarttv/images/control_button_bl_pressed.png"></div>
+		<div id="btn_CBR" class="control_button_br" style="display: none; top: 114px;"><img src="../templates/app_smarttv/images/control_button_br_pressed.png"></div>
+	</div>
+</div>

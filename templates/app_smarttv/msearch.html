@@ -1,0 +1,38 @@
+<a href="?subm=" class="btn btn-default" title="Назад"> Назад </a>
+</div>
+
+<div class="col-md-6">
+<h4 class="text-center">Добавление устройства</h4>
+<form role="form">
+
+  <div class="form-group">
+    <label for="ip">IP адрес</label>
+    <input type="text" class="form-control" name="ip" id="ip" placeholder="IP адрес" value="[#IP#]" required="true">
+  </div>
+  <button type="submit" name="subm" value="msearch" class="btn btn-default">Сопряжение</button>
+  
+[#if PAIRING="Ok"#]
+	<font color="green">&nbsp;&nbsp;<b>Успешно!</b></font></form>
+
+	<form role="form">
+	<div class="form-group">
+		<label for="alias">Псевдоним</label>
+		<input type="text" class="form-control" name="alias" id="alias" placeholder="Псевдоним" required="true">
+	</div>
+	<div class="form-group">
+		<label for="name">Модель</label>
+		<input type="text" class="form-control" name="name" id="name" placeholder="Модель" required="true">
+	</div>
+	<div class="form-group">
+		<label for="key">Ключ</label>
+		<input type="text" class="form-control" name="key" id="key" placeholder="Введите ключ с экрана" required="true">
+	</div>
+	<input type="hidden" name="ip" value="[#IP#]">
+	<button type="submit" name="subm" value="pairingKey" class="btn btn-default">Сохранить</button>
+	<a href="?" class="btn btn-default"><#LANG_CANCEL#></a>
+	</form>
+[#else PAIRING#]
+	<font color="red">&nbsp;&nbsp;<b>[#PAIRING#]</b></font></form>
+[#endif PAIRING#]
+
+</div>

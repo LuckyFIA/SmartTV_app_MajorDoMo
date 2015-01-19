@@ -1,0 +1,74 @@
+<big>SmartTV</big>
+<div class="float-right">
+	<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#about">О модуле&nbsp;&nbsp;<span class="glyphicon glyphicon-info-sign icon-white"></span>
+	</button>
+</div>
+[#if ERROR#]
+	<div class="alert alert-danger">[#ERROR#]</div>
+[#endif ERROR#]
+
+[#if SUCCESS#]
+	<div class="alert alert-success">[#SUCCESS#]</div>
+[#endif SUCCESS#]
+
+<div class="row">
+  <div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Сервис <span class="caret"></span></button>
+  <ul class="dropdown-menu" role="menu">
+	<li role="presentation" class="dropdown-header">Добавление устр-ва</li>
+    <li><a href="?subm=search">Поиск в сети</a></li>
+    <li><a href="?subm=msearch">Вручную</a></li>
+    
+    <li class="divider"></li>
+    <li><a href="?subm=help">Помощь</a></li>
+  </ul>
+</div>
+
+[#if VIEW_MODE="" || VIEW_MODE="main"#]
+	[#inc view.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="search"#]
+	[#inc search.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="msearch"#]
+	[#inc msearch.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="help"#]
+	[#inc help.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="pairing"#]
+	[#inc pairing.html#]
+[#endif VIEW_MODE#]
+
+<div class="modal fade" id="about" tabindex="-1" role="dialog" aria-labelledby="about1" aria-hidden="true">
+<!-- <div id="about" class="modal hide"> -->
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">SmartTV</h4>
+			</div>
+			<div class="modal-body">
+				<p> Модуль управления SmartTV<br>
+				Обсуждение модуля <a href="#" target="_blank">здесь</a>.<br>
+				<hr size="1">
+				Поддержать автора материально:
+					  <ul>
+						  <li>Yandex: 410011477255886</li>
+						  <li>WebMoney: R426095916500</li>
+						  <li>PayPal: 4fedorov@gmail.com</li>
+						  <li>Qiwi: +79644602116</li>
+					  </ul>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<div class="pull-left">Best regards!<br>@LuckyFIA :)</div>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+			</div>
+		</div>
+	</div>
+</div>
