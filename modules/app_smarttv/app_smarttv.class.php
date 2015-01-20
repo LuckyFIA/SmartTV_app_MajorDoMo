@@ -273,13 +273,14 @@ class app_smarttv extends module
         $className = $this->className;
         $this->view_mode = "";
         $pairing = getObjectsByClass($className);
-        foreach ($pairing as $obj) {
-            $pairingDevice["alias"] = $obj["TITLE"];
-            $pairingDevice["name"] = gg($className . '.' . $obj["TITLE"] . '.name');
-            $pairingDevice["ip"] = gg($className . '.' . $obj["TITLE"] . '.ip');
-            $out["PAIRING_DEVICE"][] = $pairingDevice;
-        }
-
+		if(!empty( $pairing)){
+			foreach ($pairing as $obj) {
+				$pairingDevice["alias"] = $obj["TITLE"];
+				$pairingDevice["name"] = gg($className . '.' . $obj["TITLE"] . '.name');
+				$pairingDevice["ip"] = gg($className . '.' . $obj["TITLE"] . '.ip');
+				$out["PAIRING_DEVICE"][] = $pairingDevice;
+			}
+		}
         global $cmd;
         if (isset($cmd)) {
             $lgTV = new lg_tv();
