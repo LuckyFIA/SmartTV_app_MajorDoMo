@@ -161,7 +161,6 @@ class app_smarttv extends module
     function search(&$out)
     {
         $this->view_mode = "search";
-		//$out["SEARCH"] = 'Поиск устройств в сети';
     }
 	
 	function msearch(&$out)
@@ -178,22 +177,27 @@ class app_smarttv extends module
 				$out["PAIRING"] = 'Ошибка!';
 			}
 		}
-		//$out["SEARCH"] = 'Поиск устройств в сети';
-    }
+	}
 	
 	function findDevices(&$out)
     {
         $lgTV = new lg_tv();
         $response = $lgTV->mSearch();
-        $this->view_mode = "search";
-        foreach ($response as $res) {
-            $xml = simplexml_load_file($res["location"]);
-            $device = $xml->device;
-            $found["name"] = $device->friendlyName;
-            $found["model"] = $device->modelName;
+		$this->view_mode = "search";
+	
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt( $ch, CURLOPT_USERAGENT, "UDAP/2.0" );
+		foreach ($response as $res) {
+            curl_setopt($ch, CURLOPT_URL, $res["location"]);
+			$xml = simplexml_load_string(curl_exec($ch));
+			$device = $xml->device;
+            $found["name"] = $device->modelName;
+            $found["model"] = $device->friendlyName;
             $found["ip"] = $res["ip"];
             $out["FOUND_DEVICE"][] = $found;
         }
+		curl_close($ch);
 		if (!$response) $out["SEARCH"] = 'Устройств не найдено. Повторите поиск или добавьте вручную';
     }
 

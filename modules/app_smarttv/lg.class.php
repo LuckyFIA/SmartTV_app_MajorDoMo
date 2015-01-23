@@ -11,18 +11,26 @@ class lg_tv{
 
 	function mSearch($timeout = 2)
 	{
-		$msg  = 'M-SEARCH * HTTP/1.1'."\r\n";
+/*	$msg  = 'M-SEARCH * HTTP/1.1'."\r\n";
 		$msg .= 'HOST: 239.255.255.250:1900'."\r\n";
 		$msg .= 'MAN: "ssdp:discover"'."\r\n";
 		$msg .= 'MX: 3'."\r\n";
-		$msg .= 'ST: urn:schemas-upnp-org:device:MediaRenderer:1'."\r\n"; 
+		$msg .= 'ST: urn:schemas-udap:service:netrcu:1'."\r\n"; 
+		$msg .= 'USER-AGENT: UDAP/2.0'."\r\n";
+		$msg .= "\r\n";
+*/	
+		$msg  = 'B-SEARCH * HTTP/1.1'."\r\n";
+		$msg .= 'HOST: 255.255.255.255:1990'."\r\n";
+		$msg .= 'MAN: "ssdp:discover"'."\r\n";
+		$msg .= 'MX: 2'."\r\n";
+		$msg .= 'ST: urn:schemas-udap:service:netrcu:1'."\r\n"; 
 		$msg .= 'USER-AGENT: UDAP/2.0'."\r\n";
 		$msg .= "\r\n";
 
 		$sock = socket_create(AF_INET, SOCK_DGRAM, 0);
 		//if (!$sock)	die('Unable to create AF_INET socket');
 		socket_set_option($sock, SOL_SOCKET, SO_BROADCAST, 1);
-		socket_sendto( $sock, $msg, strlen($msg), 0, '239.255.255.250', 1900);
+		socket_sendto( $sock, $msg, strlen($msg), 0, '255.255.255.255', 1990);//<-- B-SEARCH
 		
 		socket_set_option($sock, SOL_SOCKET, SO_RCVTIMEO, array('sec'=>$timeout, 'usec'=>'0'));
 		
@@ -42,7 +50,6 @@ class lg_tv{
 	
 	function parseMSearchResponse($res, $ip)
 	{
-		//print_r($res);
 		$result = array();
 		$lines = explode("\r\n", trim($res));
 		if(trim($lines[0]) == 'HTTP/1.1 200 OK') {
