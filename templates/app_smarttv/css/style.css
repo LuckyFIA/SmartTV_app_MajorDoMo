@@ -119,6 +119,7 @@ border:none;
 	position: absolute;
 	background-size: cover;
 	background-image: url(/templates/app_smarttv/images/button.png);
+	cursor: pointer;
 }
 .pwr {
 	left: 0px;

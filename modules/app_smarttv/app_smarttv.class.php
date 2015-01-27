@@ -14,7 +14,7 @@ class app_smarttv extends module
     function app_smarttv()
     {
         $this->name = "app_smarttv";
-        $this->title = "SmartTV";
+        $this->title = "LG Smart TV";
         $this->module_category = "<#LANG_SECTION_DEVICES#>";
         $this->checkInstalled();
     }
