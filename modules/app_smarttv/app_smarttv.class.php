@@ -19,7 +19,7 @@ class app_smarttv extends module
         $this->checkInstalled();
     }
 
-    function saveParams()
+    function saveParams($data = 1)
     {
         $p = array();
         if (IsSet($this->id)) {
